@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Happy Birthday Jayshree</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;overflow:hidden;background:linear-gradient(135deg,#ff5f9e,#8a5cff,#42c6ff);background-size:300% 300%;animation:bg 10s ease infinite}
+@keyframes bg{0%{background-position:0 50%}50%{background-position:100% 50%}100%{background-position:0 50%}}
+.card{width:min(92%,420px);background:rgba(255,255,255,.15);backdrop-filter:blur(10px);padding:24px;border-radius:20px;text-align:center;color:#fff;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+h1{margin:0;font-size:2rem;text-shadow:0 0 10px #fff}
+button{margin-top:20px;padding:12px 22px;border:none;border-radius:30px;font-size:1rem;cursor:pointer}
+#msg{display:none;margin-top:18px}
+.balloon{position:fixed;bottom:-80px;width:36px;height:48px;border-radius:50%;animation:float linear infinite}
+.balloon:after{content:'';position:absolute;width:2px;height:45px;background:#fff;left:17px;top:48px}
+@keyframes float{to{transform:translateY(-120vh)}}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>🎂 Happy Birthday Jayshree ❤️</h1>
+<p>May your life always be filled with happiness, success, love and beautiful memories.</p>
+<button onclick="openGift()">🎁 Open Surprise</button>
+<div id="msg">
+<h2>🎉 Surprise! 🎉</h2>
+<p>Wishing you endless smiles, good health, and all your dreams come true. Have an amazing birthday! 💖</p>
+</div>
+</div>
+<script>
+const colors=['#ff4d6d','#ffd93d','#4cd964','#5ac8fa','#af52de'];
+for(let i=0;i<18;i++){
+ let b=document.createElement('div');
+ b.className='balloon';
+ b.style.left=Math.random()*100+'vw';
+ b.style.background=colors[Math.floor(Math.random()*colors.length)];
+ b.style.animationDuration=(6+Math.random()*5)+'s';
+ document.body.appendChild(b);
+}
+function openGift(){
+ document.getElementById('msg').style.display='block';
+ for(let i=0;i<80;i++){
+   const e=document.createElement('div');
+   e.textContent=Math.random()>0.5?'❤️':'✨';
+   e.style.position='fixed';
+   e.style.left=Math.random()*100+'vw';
+   e.style.top='-20px';
+   e.style.fontSize=(16+Math.random()*18)+'px';
+   e.animate([{transform:'translateY(0)',opacity:1},{transform:'translateY(110vh)',opacity:0}],{duration:3000+Math.random()*2000});
+   document.body.appendChild(e);
+   setTimeout(()=>e.remove(),5200);
+ }
+}
+</script>
+</body>
+</html>
